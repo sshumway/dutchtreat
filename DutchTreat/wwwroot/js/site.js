@@ -1,11 +1,20 @@
-﻿var theForm = document.getElementById("theForm");
+﻿$(function () {
+    var theForm = $('#theForm');
 
-theForm.hidden = true;
+    theForm.hide();
 
-var button = document.getElementById("buyButton");
-button.addEventListener("click", function() {
-    console.log("buying item");
+    var button = $('#buyButton');
+    button.on('click', function () {
+        console.log('buying item');
+    });
+
+    var productInfo = $('.product-props li');
+    productInfo.on('click', function () { console.log("You clicked on " + $(this).text()) });
+
+    var $loginToggle = $('#loginToggle');
+    var $popupForm = $('.popup-form');
+
+    $loginToggle.on('click', function () {
+        $popupForm.slideToggle(500);
+    });
 });
-
-var productInfo = document.getElementByClassName("product-props");
-var listItems = productInfo.item[0].children;
